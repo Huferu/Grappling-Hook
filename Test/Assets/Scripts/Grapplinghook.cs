@@ -75,4 +75,10 @@ public class Grapplinghook : MonoBehaviour
     {
         return joint != null;
     }
+
+    public Vector3 GetGrapplingPoint()
+    {
+        return grapplePoint;
+    }
+
 }
