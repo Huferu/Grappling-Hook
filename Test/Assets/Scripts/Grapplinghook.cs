@@ -17,6 +17,7 @@ public class Grapplinghook : MonoBehaviour
     private void Awake()
     {
         lr = GetComponent<LineRenderer>();
+        lr.positionCount = 0;
     }
 
     private void Update()
