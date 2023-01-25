@@ -531,9 +531,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 852390411}
-  - component: {fileID: 852390412}
   m_Layer: 0
-  m_Name: Head
+  m_Name: CameraPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -554,23 +553,6 @@ Transform:
   m_Father: {fileID: 1136211212}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &852390412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852390410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d4eed2161457f40b7e524b1274b1ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  senxX: 100
-  senxY: 100
-  orientation: {fileID: 981765963}
-  cameraPos: {fileID: 963194228}
-  mouseSensitivity: 20
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +564,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -655,6 +638,23 @@ Transform:
   m_Father: {fileID: 1136211212}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d4eed2161457f40b7e524b1274b1ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  senxX: 100
+  senxY: 100
+  orientation: {fileID: 981765963}
+  cameraPos: {fileID: 852390411}
+  mouseSensitivity: 20
 --- !u!1 &981765962
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 1136211207}
   - component: {fileID: 1136211213}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -821,7 +821,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 96
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &1162006240
 GameObject:
