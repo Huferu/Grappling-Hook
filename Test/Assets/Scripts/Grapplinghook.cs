@@ -18,6 +18,7 @@ public class Grapplinghook : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
         lr.positionCount = 0;
+        Destroy(joint);
     }
 
     private void Update()
