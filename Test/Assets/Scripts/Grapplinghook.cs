@@ -50,18 +50,19 @@ public class Grapplinghook : MonoBehaviour
             joint.spring = 5f;
             joint.damper = 10f;
             joint.massScale = 5f;
+
+            lr.positionCount = 2;
         }
     }
 
     void StopGrapple()
     {
-        lr.positionCount = 2;
+        lr.positionCount = 0;
         Destroy(joint);
     }
 
     void DrawRope()
     {
-        Debug.Log(gunTip.position);
         if(joint == null)
             return;
         lr.SetPosition(0, gunTip.position);
