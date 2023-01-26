@@ -84,13 +84,19 @@ public class Player : MonoBehaviour
     {
         Vector3 flatVel = new (rb.velocity.x, 0f, rb.velocity.z);
 
-        if(flatVel.magnitude > moveSpeed)
+        if(flatVel.magnitude > moveSpeed && IsGrounded())
         {
             Vector3 limitVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitVel.x,rb.velocity.y,limitVel.z);
         }
 
-        
+        if (flatVel.magnitude > moveSpeed + 10)
+        {
+            Vector3 limitVel = flatVel.normalized * (moveSpeed + 10);
+            rb.velocity = new Vector3(limitVel.x, rb.velocity.y, limitVel.z);
+        }
+
+
     }
 
     private void Run()
