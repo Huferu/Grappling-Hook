@@ -28,6 +28,7 @@ public class Grapplinghook : MonoBehaviour
             StartGrapple();
         else if (Input.GetMouseButtonUp(0))
             StopGrapple();
+        ChangeJointLength();
     }
 
     private void LateUpdate()
@@ -61,17 +62,16 @@ public class Grapplinghook : MonoBehaviour
             joint.massScale = 5f;
 
             lr.positionCount = 2;
-            //StillGrapple(hit.collider.gameObject);
         }
     }
 
-    void StillGrapple(GameObject colObject)
+    void ChangeJointLength()
     {
-        grapplePoint = grapplePoint - grapplePoint - colObject.transform.position;
-        joint = player.gameObject.GetComponent<SpringJoint>();
-        joint.connectedAnchor = grapplePoint;
-
-        float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            joint.maxDistance -= joint.maxDistance / 2;
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            if (joint.maxDistance >= 50)
+                joint.maxDistance += joint.maxDistance / 2;
     }
 
     void StopGrapple()
