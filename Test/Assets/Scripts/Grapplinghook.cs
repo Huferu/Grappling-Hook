@@ -67,11 +67,22 @@ public class Grapplinghook : MonoBehaviour
 
     void ChangeJointLength()
     {
+        if (joint == null)
+            return;
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            if(joint.maxDistance > 0 && joint.minDistance > 0)
             joint.maxDistance -= joint.maxDistance / 2;
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
-            if (joint.maxDistance >= 50)
+            joint.minDistance -= joint.minDistance / 2;
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0) {
+            if (joint.maxDistance >= 50 && joint.minDistance >= 50)
+            {
                 joint.maxDistance += joint.maxDistance / 2;
+                joint.minDistance += joint.maxDistance / 2;
+            }
+        }
     }
 
     void StopGrapple()
@@ -99,6 +110,9 @@ public class Grapplinghook : MonoBehaviour
 
     public Vector3 GetGrapplingPoint()
     {
+        if (joint.connectedBody != null)
+            return joint.connectedBody.position;
+        else
         return grapplePoint;
     }
 
