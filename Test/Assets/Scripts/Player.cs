@@ -8,6 +8,11 @@ public class Player : MonoBehaviour
 {
     private Rigidbody rb;
     public float moveSpeed;
+    public float runSpeed;
+
+    public Vector3 jump;
+    public float jumpForce = 2.0f;
+   
 
     public Transform orientation;
 
@@ -26,6 +31,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
     }
 
     private void Update()
@@ -51,6 +57,12 @@ public class Player : MonoBehaviour
             Cursor.visible = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            Run();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            Jump();
+
     }
 
     private void FixedUpdate()
@@ -75,7 +87,19 @@ public class Player : MonoBehaviour
             Vector3 limitVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitVel.x,rb.velocity.y,limitVel.z);
         }
+
+        
     }
 
-   
+    private void Run()
+    {
+       
+    }
+
+    private void Jump()
+    {
+
+        rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+        isGrounded = false;
+    }    
 }
