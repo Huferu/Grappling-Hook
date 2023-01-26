@@ -59,9 +59,6 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
             Run();
-
-
-
     }
 
     private void FixedUpdate()
@@ -95,8 +92,6 @@ public class Player : MonoBehaviour
             Vector3 limitVel = flatVel.normalized * (moveSpeed + 10);
             rb.velocity = new Vector3(limitVel.x, rb.velocity.y, limitVel.z);
         }
-
-
     }
 
     private void Run()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -27,11 +28,13 @@ public class Grapplinghook : MonoBehaviour
             StartGrapple();
         else if (Input.GetMouseButtonUp(0))
             StopGrapple();
+        ChangeJointLength();
     }
 
     private void LateUpdate()
     {
         DrawRope();
+
     }
 
     void StartGrapple()
@@ -49,7 +52,6 @@ public class Grapplinghook : MonoBehaviour
                 joint.autoConfigureConnectedAnchor = true;
             }
 
-
             float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
 
             joint.maxDistance = distanceFromPoint * 0.8f;
@@ -63,6 +65,15 @@ public class Grapplinghook : MonoBehaviour
         }
     }
 
+    void ChangeJointLength()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            joint.maxDistance -= joint.maxDistance / 2;
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            if (joint.maxDistance >= 50)
+                joint.maxDistance += joint.maxDistance / 2;
+    }
+
     void StopGrapple()
     {
         lr.positionCount = 0;
@@ -74,7 +85,11 @@ public class Grapplinghook : MonoBehaviour
         if(joint == null)
             return;
         lr.SetPosition(0, gunTip.position);
-        lr.SetPosition(1, grapplePoint);
+        if (joint.connectedBody != null)
+            lr.SetPosition(1, joint.connectedBody.position);
+        else
+            lr.SetPosition(1, grapplePoint);
+
     }
 
     public bool isGrappling()
