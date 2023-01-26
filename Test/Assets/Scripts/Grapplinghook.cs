@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -33,7 +32,6 @@ public class Grapplinghook : MonoBehaviour
     private void LateUpdate()
     {
         DrawRope();
-
     }
 
     void StartGrapple()
@@ -51,6 +49,7 @@ public class Grapplinghook : MonoBehaviour
                 joint.autoConfigureConnectedAnchor = true;
             }
 
+
             float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
 
             joint.maxDistance = distanceFromPoint * 0.8f;
@@ -61,17 +60,7 @@ public class Grapplinghook : MonoBehaviour
             joint.massScale = 5f;
 
             lr.positionCount = 2;
-            //StillGrapple(hit.collider.gameObject);
         }
-    }
-
-    void StillGrapple(GameObject colObject)
-    {
-        grapplePoint = grapplePoint - grapplePoint - colObject.transform.position;
-        joint = player.gameObject.GetComponent<SpringJoint>();
-        joint.connectedAnchor = grapplePoint;
-
-        float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
     }
 
     void StopGrapple()
@@ -85,11 +74,7 @@ public class Grapplinghook : MonoBehaviour
         if(joint == null)
             return;
         lr.SetPosition(0, gunTip.position);
-        if (joint.connectedBody != null)
-            lr.SetPosition(1, joint.connectedBody.position);
-        else
-            lr.SetPosition(1, grapplePoint);
-
+        lr.SetPosition(1, grapplePoint);
     }
 
     public bool isGrappling()
