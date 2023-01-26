@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +14,8 @@ public class GameManager : MonoBehaviour
     public AudioClip clickSound;
     public AudioClip keySound;
     public AudioClip switchSound;
+    
+    
 
     public static GameManager instance;
 
@@ -22,14 +26,16 @@ public class GameManager : MonoBehaviour
         else
             instance = this;
         DontDestroyOnLoad(gameObject);
+        
     }
 
     private void Start()
     {
+   
         winMusic = GetComponent<AudioSource>();
         player = gameObject.AddComponent<AudioSource>();
         currentLevel = 0;
-
+       
     }
 
     public void LoadLevel(int levelNr)
@@ -37,8 +43,7 @@ public class GameManager : MonoBehaviour
         currentLevel = levelNr;
         winMusic.Stop();
         SceneManager.LoadScene(levelNr);
-        
-
+      
     }
     public void ReloadLevel()
     {
