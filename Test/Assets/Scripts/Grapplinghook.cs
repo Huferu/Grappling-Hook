@@ -43,6 +43,12 @@ public class Grapplinghook : MonoBehaviour
             joint = player.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
             joint.connectedAnchor = grapplePoint;
+            if (hit.collider.gameObject.GetComponent<Rigidbody>() != null)
+            {
+                joint.connectedBody = hit.collider.gameObject.GetComponent<Rigidbody>();
+                joint.autoConfigureConnectedAnchor = true;
+            }
+
 
             float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
 
