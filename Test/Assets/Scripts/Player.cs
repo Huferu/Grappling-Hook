@@ -60,13 +60,15 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
             Run();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-            Jump();
+
 
     }
 
     private void FixedUpdate()
     {
+        if (Input.GetKey(KeyCode.Space) && IsGrounded() && rb.velocity.y <= 0)
+            Jump();
+
         Movement();
     }
 
@@ -101,5 +103,19 @@ public class Player : MonoBehaviour
 
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         isGrounded = false;
-    }    
+    }
+    
+    private bool IsGrounded()
+    {
+        if (Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), -transform.up, transform.rotation, 0.5f))
+            return true;
+
+        else
+            return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position - Vector3.up / 2, new Vector3 (0.5f, 0.5f, 0.5f));
+    }
 }
