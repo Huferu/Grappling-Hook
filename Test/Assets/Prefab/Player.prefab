@@ -343,10 +343,14 @@ GameObject:
   - component: {fileID: 1067397345541024557}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Layer: 3
 =======
   m_Layer: 0
 >>>>>>> Stashed changes
+=======
+  m_Layer: 0
+>>>>>>> parent of b406c46 (Fixed visualbug on  Grapplingscript)
 =======
   m_Layer: 0
 >>>>>>> parent of b406c46 (Fixed visualbug on  Grapplingscript)
@@ -501,12 +505,16 @@ GameObject:
   - component: {fileID: 7314250198014695616}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   m_Layer: 3
 =======
   - component: {fileID: 77360908182152036}
   m_Layer: 0
 >>>>>>> Stashed changes
+=======
+  m_Layer: 0
+>>>>>>> parent of b406c46 (Fixed visualbug on  Grapplingscript)
 =======
   m_Layer: 0
 >>>>>>> parent of b406c46 (Fixed visualbug on  Grapplingscript)
