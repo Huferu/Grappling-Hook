@@ -42,6 +42,14 @@ public class Player : MonoBehaviour
         else
             rb.drag = 0;
 
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(Application.loadedLevel);
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {  
+            SceneManager.LoadScene(0);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
 
     }
 
@@ -68,4 +76,6 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector3(limitVel.x,rb.velocity.y,limitVel.z);
         }
     }
+
+   
 }
