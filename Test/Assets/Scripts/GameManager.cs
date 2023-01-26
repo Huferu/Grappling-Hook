@@ -35,8 +35,9 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(int levelNr)
     {
         currentLevel = levelNr;
-        SceneManager.LoadScene(levelNr);
         winMusic.Stop();
+        SceneManager.LoadScene(levelNr);
+        
 
     }
     public void ReloadLevel()
