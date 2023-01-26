@@ -576,6 +576,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  runSpeed: 0
+  jump: {x: 0, y: 0, z: 0}
+  jumpForce: 2
   orientation: {fileID: 7314250197777263787}
   groundDrag: 3
   playerHeight: 0.5

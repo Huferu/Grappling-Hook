@@ -13,6 +13,12 @@ public class MainMenu : MonoBehaviour
     public static float mouseSensetivity = 0.5f;
     public static float musicVolume = 0.5f;
 
+    private void Start()
+    {
+        mouseSens.value = mouseSensetivity;
+        musicVol.value = musicVolume;
+    }
+
     public void OnSenseChanged()
     {
        mouseSensetivity = mouseSens.value;

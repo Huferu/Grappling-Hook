@@ -11,7 +11,6 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform cameraPos;
     private float xRotation;
     private float yRotation;
-    public float mouseSensitivity;
 
     void Start()
     {
@@ -31,8 +30,8 @@ public class CameraController : MonoBehaviour
 
         transform.position = cameraPos.position;
 
-        float mouseX = Input.GetAxisRaw("Mouse X") * senxX * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * senxY * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxisRaw("Mouse X") * senxX * MainMenu.mouseSensetivity * Time.deltaTime;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * senxY * MainMenu.mouseSensetivity * Time.deltaTime;
 
         yRotation += mouseX;
         xRotation -= mouseY;
