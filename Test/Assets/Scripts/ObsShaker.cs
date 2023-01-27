@@ -15,14 +15,14 @@ public class ObsShaker : MonoBehaviour {
     private Vector3 lastPos;
     private Vector3 nextPos;
 
-
-    private void OnCollisionEnter(Collision collision) {
-        Shake();
-	}
-
     public void Shake() {
         Reset();
         time = Duration;
+    }
+
+    private void Update()
+    {
+        Shake();
     }
 
     private void LateUpdate() {
