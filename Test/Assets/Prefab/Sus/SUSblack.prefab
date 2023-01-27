@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 1219249593819548463}
   - component: {fileID: 4044256417720359124}
   - component: {fileID: 4867769455532753052}
+  - component: {fileID: -5781001484286456638}
   m_Layer: 0
   m_Name: SUSblack
   m_TagString: Untagged
@@ -538,6 +539,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417eb581e392fcd4f8f32e3e9c9d39b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5781001484286456638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7710507596522308252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0bd54e1ac45ac498be4a9d1fe565af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 10000
 --- !u!1 &7838372605384431070
 GameObject:
   m_ObjectHideFlags: 0
