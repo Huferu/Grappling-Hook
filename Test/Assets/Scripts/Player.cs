@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float moveSpeed;
     public float runSpeed;
 
-    private bool isPlaying;
+    public static bool isPlaying;
    
 
     public Vector3 jump;

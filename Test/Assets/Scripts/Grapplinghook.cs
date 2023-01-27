@@ -26,7 +26,8 @@ public class Grapplinghook : MonoBehaviour
 
     private void Update()
     {
-        
+        if (!Player.isPlaying)
+            return;
 
         if (Input.GetMouseButtonDown(0))
             StartGrapple();
@@ -37,6 +38,9 @@ public class Grapplinghook : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (!Player.isPlaying)
+            return;
+
         DrawRope();
     }
 
