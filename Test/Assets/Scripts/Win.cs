@@ -9,7 +9,7 @@ public class Win : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Player") {
-         //   collision.gameObject.GetComponent<Player>().Win();
+            collision.gameObject.GetComponent<Player>().Win();
             Invoke("ShowWinScreen", delaybeforeShow);
         }
     }

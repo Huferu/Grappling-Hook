@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public float moveSpeed;
     public float runSpeed;
 
+    private bool isPlaying;
+
     public Vector3 jump;
     public float jumpForce = 2.0f;
    
@@ -105,7 +107,12 @@ public class Player : MonoBehaviour
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         isGrounded = false;
     }
-    
+
+    public void Win()
+    {
+        isPlaying = false;
+    }
+
     private bool IsGrounded()
     {
         if (Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), -transform.up, transform.rotation, 0.5f))
