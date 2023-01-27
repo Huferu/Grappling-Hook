@@ -35,10 +35,21 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+        isPlaying = true;
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(Application.loadedLevel);
+
         if (!isPlaying)
             return;
 
@@ -54,15 +65,6 @@ public class Player : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
-
-        if (Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene(Application.loadedLevel);
-
-        if (Input.GetKeyDown(KeyCode.Escape)) {  
-            SceneManager.LoadScene(0);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
             Run();
