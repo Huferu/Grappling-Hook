@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     public AudioSource aSource;
     public Slider mouseSens;
     public Slider musicVol;
-    public static float mouseSensetivity = 0.5f;
+    public static float mouseSensetivity = 5f;
     public static float musicVolume = 0.5f;
 
     private void Start()

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Grapplinghook : MonoBehaviour
 {
@@ -34,7 +35,6 @@ public class Grapplinghook : MonoBehaviour
     private void LateUpdate()
     {
         DrawRope();
-
     }
 
     void StartGrapple()
@@ -67,23 +67,19 @@ public class Grapplinghook : MonoBehaviour
 
     void ChangeJointLength()
     {
-        Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
         if (joint == null)
             return;
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            if(joint.maxDistance > 0 && joint.minDistance > 0)
-            {
-                joint.maxDistance -= joint.maxDistance / 2;
-                joint.minDistance -= joint.minDistance / 2;
-            }
+            joint.maxDistance -= 2;
+            joint.minDistance -= 1;
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0) {
             if (joint.maxDistance <= 50 && joint.minDistance <= 50)
             {
-                joint.maxDistance += joint.maxDistance / 2;
-                joint.minDistance += joint.maxDistance / 2;
+                joint.maxDistance += 2;
+                joint.minDistance += 1;
             }
         }
     }
