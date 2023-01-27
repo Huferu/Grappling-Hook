@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float runSpeed;
 
     private bool isPlaying;
+   
 
     public Vector3 jump;
     public float jumpForce = 2.0f;
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask ground;
-    private bool isGrounded;
+    public static bool isGrounded;
 
 
     void Start()
@@ -38,12 +39,16 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (!isPlaying)
+            return;
+
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
         SpeedControl();
+
 
         if (isGrounded)
             rb.drag = groundDrag;
@@ -65,6 +70,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isPlaying)
+            return;
+
         if (Input.GetKey(KeyCode.Space) && IsGrounded() && rb.velocity.y <= 0)
             Jump();
 

@@ -15,6 +15,7 @@ public class Grapplinghook : MonoBehaviour
     public Transform player;
     public float maxDistance;
     private SpringJoint joint;
+    
 
     private void Awake()
     {
@@ -25,6 +26,8 @@ public class Grapplinghook : MonoBehaviour
 
     private void Update()
     {
+        
+
         if (Input.GetMouseButtonDown(0))
             StartGrapple();
         else if (Input.GetMouseButtonUp(0))
